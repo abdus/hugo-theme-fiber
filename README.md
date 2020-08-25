@@ -28,22 +28,25 @@ eyes!!
 ## [Table of Contents](#table-of-contents)
 
 - [Installation](#installation)
-    + [Using Submodule](#using-submodule)
-    + [Directly downloading theme](#directly-downloading-theme)
+  - [Using Submodule](#using-submodule)
+  - [Directly downloading theme](#directly-downloading-theme)
 - [Features](#features)
-  * [SEO Ready](#seo-ready)
-  * [Shortcodes](#shortcodes)
-    + [ASCIINema](#asciinema)
-    + [Can I Use](#can-i-use)
-  * [Click to Copy Code](#click-to-copy-code)
-  * [Beautiful Notes](#beautiful-notes)
+  - [SEO Ready](#seo-ready)
+  - [Shortcodes](#shortcodes)
+    - [ASCIINema](#asciinema)
+    - [Can I Use](#can-i-use)
+  - [Click to Copy Code](#click-to-copy-code)
+  - [Beautiful Notes](#beautiful-notes)
 - [Theme Set-up](#theme-set-up)
-  * [Listing content in Homepage](#listing-content-in-homepage)
-    + [List of blogs, notes etc](#list-of-blogs--notes-etc)
-    + [Listing custom content](#listing-custom-content)
-  * [Code Highlighting](#code-highlighting)
-  * [Menu Items](#menu-items)
-  * [Site Title](#site-title)
+  - [Listing content in Homepage](#listing-content-in-homepage)
+    - [List of blogs, notes etc](#list-of-blogs--notes-etc)
+    - [Listing custom content](#listing-custom-content)
+  - [Code Highlighting](#code-highlighting)
+  - [Menu Items](#menu-items)
+  - [Site Title](#site-title)
+- [Writing Content](#writing-content)
+  - [Writing Notes](#writing-notes)
+  - [Frontmatter](#frontmatter)
 
 ## Installation
 
@@ -92,7 +95,8 @@ This shortcode shows latest data from [caniuse.com](https://caniuse.com) website
 Useful for web developers. Example:
 
 ```html
-{{< caniuse feature="abortcontroller" periods="future_1,current,past_1,past_2" >}}
+{{< caniuse feature="abortcontroller" periods="future_1,current,past_1,past_2"
+>}}
 ```
 
 ### Click to Copy Code
@@ -204,4 +208,38 @@ Site title is controlled by following params in `config.toml`:
 [params]
   title = "abdus.xyz"
   mainSections = ["posts"]
+```
+
+## Writing Content
+
+### Writing Notes
+
+`Notes` is a special kind hard-coded in this theme. Contents of this kind would
+get rough-annotations(which makes it easier to manage notes).
+
+Generate a notes page using command `hugo new notes/your-filename.md` to
+learn how to use rough-annotations within notes' page.
+
+Archetype for kind Notes is included.
+
+### Frontmatter
+
+This theme uses frontmatter to handle custom post description and meta image
+for SEO. If it can't find `meta.image` and `meta.description`, it will fallback
+to `/images/default-meta-image.png` and `.Summary` respectively.
+
+Use these two fields in frontmatter like this:
+
+```markdown
+---
+...
+...
+meta:
+image: "https://example.com/some-image.png"
+  description: "your custom desc"
+...
+...
+---
+
+<!-- content goes here -->
 ```
