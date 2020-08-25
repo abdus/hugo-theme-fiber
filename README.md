@@ -15,6 +15,10 @@
     alt="GitHub" 
     src="https://img.shields.io/github/license/abdus/hugo-theme-fiber"
   />
+  <img 
+    alt="GitHub commits since latest release (by SemVer including pre-releases)" 
+    src="https://img.shields.io/github/commits-since/abdus/hugo-theme-fiber/latest?include_prereleases"
+  />
 </p>
 
 A Hugo theme for the minimalists. Fiber uses minimum JavaScript and CSS to
