@@ -4,7 +4,8 @@
   <h2>{{.Title }}</h2>
   {{ if .Date }}
   <small
-    >{{ .Date.Format "2 January, 2006" | }}&nbsp;&nbsp;&middot;&nbsp;&nbsp;</small
+    >{{ .Date.Format "2 January, 2006" }}
+    &nbsp;&nbsp;&middot;&nbsp;&nbsp;</small
   >
   {{ end }}
   <!--.-->
@@ -58,13 +59,15 @@
 {{ end }}
 <!--  List prev post and next post -->
 <div style="margin-top: 5rem;">
+  {{ if .PrevInSection }}
+  <a href="{{ .PrevInSection.Permalink }}" class="prev-next older"
+    >{{ .PrevInSection.Title }}&Rarr;</a
+  >
+  {{ end }}
+  <!--.-->
   {{ if .NextInSection }}
   <a href="{{ .NextInSection.Permalink }}" class="prev-next newer"
     >&Larr;{{ .NextInSection.Title }}</a
-  >
-  {{ end }} {{ if .PrevInSection }}
-  <a href="{{ .PrevInSection.Permalink }}" class="prev-next older"
-    >{{ .PrevInSection.Title }}&Rarr;</a
   >
   {{ end }}
 </div>
