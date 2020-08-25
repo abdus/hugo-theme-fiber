@@ -5,14 +5,14 @@
 
   <small style="display: block;">
     <code>{{ .File.LogicalName }}</code> was last updated on
-    <code>{{ .GitInfo.AuthorDate.Format "2 July, 2006" }}</code>. Generated from
+    <code>{{ .GitInfo.AuthorDate.Format "2 January, 2006" }}</code>. Generated from
     <a
       target="_blank"
       href="https://github.com/abdus/abdus/tree/{{ .GitInfo.Hash }}"
       style="text-decoration: none;"
       ><code>{{ .GitInfo.AbbreviatedHash }}</code></a
     >
-    because of <code>{{ .GitInfo.Subject }}</code>
+    because of <code>{{ .GitInfo.Subject | emojify }}</code>
   </small>
   {{ end }}
 

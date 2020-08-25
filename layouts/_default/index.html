@@ -1,4 +1,6 @@
-{{ define "main" }} {{ .Content }}
+{{ define "main" }}
+<!--.-->
+{{ .Content }}
 
 <div class="page-list">
   {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
