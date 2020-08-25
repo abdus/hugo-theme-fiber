@@ -6,7 +6,7 @@ license = "MIT"
 licenselink = "https://license.abdus.xyz"
 description = ""
 homepage = "https://github.com/abdus/hugo-theme-fiber/"
-tags = [minimal, minimalist, simple, clean]
+tags = ["minimal", "minimalist", "simple", "clean", "minimalism"]
 features = []
 min_version = "0.41.0"
 
