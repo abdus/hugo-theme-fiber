@@ -20,6 +20,20 @@
 A Hugo theme for the minimalists. Fiber uses minimum JavaScript and CSS to
 so that you site could load faster!
 
+## Table of Contents
+
+- [Installation](#installation)
+    + [Using Submodule](#using-submodule)
+    + [Directly downloading theme](#directly-downloading-theme)
+- [Theme Set-up](#theme-set-up)
+  * [Listing content in Homepage](#listing-content-in-homepage)
+    + [List of blogs, notes etc](#list-of-blogs--notes-etc)
+    + [Listing custom content](#listing-custom-content)
+  * [Code Highlighting](#code-highlighting)
+- [Menu Items](#menu-items)
+- [Site Title](#site-title)
+
+
 ## Installation
 
 There are two ways this theme could be used with any Hugo-based sites.
