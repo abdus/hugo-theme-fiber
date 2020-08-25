@@ -1,7 +1,7 @@
 {{ define "main" }} {{ .Content }}
 
 <div class="page-list">
-  {{ range (where .Site.RegularPages "Section" "post") }}
+  {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
   <div class="list-item">
     <h3 style="margin: 3rem 0 0.5rem 0;">
       <a style="text-decoration: none;" href="{{ .Permalink | absURL }}"
