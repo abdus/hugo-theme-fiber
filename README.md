@@ -22,7 +22,8 @@
 </p>
 
 A Hugo theme for the minimalists. Fiber uses minimum JavaScript and CSS to
-so that you site could load faster!
+so that you site could load faster! Also posses a clean UI which is great for
+eyes!!
 
 ## [Table of Contents](#table-of-contents)
 
@@ -35,6 +36,7 @@ so that you site could load faster!
     + [ASCIINema](#asciinema)
     + [Can I Use](#can-i-use)
   * [Click to Copy Code](#click-to-copy-code)
+  * [Beautiful Notes](#beautiful-notes)
 - [Theme Set-up](#theme-set-up)
   * [Listing content in Homepage](#listing-content-in-homepage)
     + [List of blogs, notes etc](#list-of-blogs--notes-etc)
