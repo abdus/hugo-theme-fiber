@@ -50,7 +50,7 @@ There are two ways this theme could be used with any Hugo-based sites.
 
 1. Create your site using `hugo new site SITE_NAME`
 2. `cd` to `SITE_NAME`
-3. Initialize a git repo: `git inti`. This is needed because we have to add a git submodule.
+3. Initialize a git repo: `git init`. This is needed because we have to add a git submodule.
 4. Add submodule by runing `git submodule add git@github.com:abdus/hugo-theme-fiber.git themes/hugo-theme-fiber`
 5. Now, start Hugo server locally using `hugo serve`
 
@@ -83,12 +83,26 @@ Embed an AsciiNema Cast. Shortcode to use: `{{< asciinema id="id of a public cas
 #### Can I Use
 
 This shortcode shows latest data from [caniuse.com](https://caniuse.com) website.
-Useful for web developers.
+Useful for web developers. Example:
+
+```html
+{{< caniuse feature="abortcontroller" periods="future_1,current,past_1,past_2" >}}
+```
 
 ### Click to Copy Code
 
 Visitors of the website can copy content of any codeblock with just one click.
 This will not break code indentations!
+
+### Beautiful Notes
+
+Anything you put inside `content/notes`, would get rough-annotations. This makes
+it easier to recognize important things from notes.
+
+Rough Annotations are controlled using tags like `strong`, `em` and `strikethrough`.
+To generate a new `notes` entry, first you must create directory `content/notes`.
+Then use `hugo new notes/file-name.md` to generate a Note. This file would
+contain information about how to annotate things with above mentioned tags.
 
 ## Theme Set-up
 
@@ -185,5 +199,3 @@ Site title is controlled by following params in `config.toml`:
   title = "abdus.xyz"
   mainSections = ["posts"]
 ```
-
-
