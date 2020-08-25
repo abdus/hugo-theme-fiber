@@ -1,0 +1,76 @@
+<style>
+  .project-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    padding: 1rem;
+    max-width: 70rem;
+  }
+
+  .project-wrapper .card {
+    padding: 1rem 0;
+    border-bottom: 1px dotted lightgray;
+  }
+
+  @media (max-width: 500px) {
+    .project-wrapper {
+      padding: 0;
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="project-wrapper">
+  {{ range $.Site.Data.projects }}
+
+  <div class="card">
+    <strong>{{ .name }}</strong>
+
+    <small
+      style="
+          font-style: oblique;
+          line-height: 1.2;
+          display: block;
+          color: #909090;
+        "
+    >
+      {{ .description }}
+    </small>
+
+    <div
+      style="
+          display: flex;
+          align-items: center;
+          margin: 1rem 0 0.5rem 0;
+        "
+    >
+      {{ range .stack }}
+      <img
+        src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/{{ . }}.svg"
+        alt=""
+        title="{{ . }}"
+        style="max-width: 20px;margin-right: 0.4rem;"
+      />
+      {{ end }}
+    </div>
+
+    <div
+      style="
+            font-size: 0.7em;
+            font-weight: bold;
+         "
+    >
+      {{ if .source }}
+      <a style="margin-right: 1rem;color: gray" href="{{ .source }}"
+        >SourceCode</a
+      >
+      {{ end }}
+      <!-- -->
+      {{ if .demo }}
+      <a style="margin-right: 1rem;color: gray" href="{{ .demo }}">LiveDemo</a>
+      {{ end }}
+    </div>
+  </div>
+
+  {{ end }}
+</div>

@@ -1,0 +1,147 @@
+{{ define "main" }}
+
+<div style="text-align: center; margin: 3rem 0 3rem 0;">
+  <h2>{{.Title }}</h2>
+  {{ if .Date }}
+  <small
+    >{{ .Date.Format "2 January, 2006" | }}&nbsp;&nbsp;&middot;&nbsp;&nbsp;</small
+  >
+  {{ end }}
+  <!--.-->
+  <small>
+    {{ range .Param "categories" }}
+    <a style="text-decoration: none;" href="/categories/{{ . | urlize }}"
+      >{{ . | title }}</a
+    >
+    {{ end }}
+  </small>
+</div>
+{{ if .Param "sources" }}
+<div style="margin-bottom: 3rem;">
+  {{ range .Param "sources" }}
+  <a
+    style="
+      display: inline-block;
+      color: gray;
+      text-decoration: none;
+      font-size: 0.9em;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 100%;
+    "
+    href="{{ . }}"
+  >
+    <i style="font-size: 0.75em; color: lightgray;" class="fas fa-link"></i>
+    &nbsp; {{ . }}</a
+  >
+  {{ end }}
+</div>
+{{ end }}
+<!--main content-->
+<div class="section-content" style="color: #252525;">
+  {{ .Content }}
+</div>
+
+{{ if .Param "tags" }}
+<div style="margin-top: 2rem;">
+  <i class="fas fa-tags" style="font-size: 0.7em; color: gray;"></i>
+  {{ range .Param "tags" }}
+  <a
+    style="border: 0; font-size: 0.8em; padding: 0 4px; text-decoration: none;"
+    href="/tags/{{ . | urlize }}"
+  >
+    &nbsp;{{ . | urlize }}
+  </a>
+  {{ end }}
+</div>
+{{ end }}
+<!--  List prev post and next post -->
+<div style="margin-top: 5rem;">
+  {{ if .NextInSection }}
+  <a href="{{ .NextInSection.Permalink }}" class="prev-next newer"
+    >&Larr;{{ .NextInSection.Title }}</a
+  >
+  {{ end }} {{ if .PrevInSection }}
+  <a href="{{ .PrevInSection.Permalink }}" class="prev-next older"
+    >{{ .PrevInSection.Title }}&Rarr;</a
+  >
+  {{ end }}
+</div>
+
+{{ partial "json-ld.html" . }}
+
+<!--load rough-notation if the section is "notes"-->
+{{ if eq .Section "notes" }}
+<script type="module">
+  import { annotate } from "https://unpkg.com/rough-notation?module";
+
+  function checkParent(elem) {
+    const parent = elem.parentElement;
+    const strong = document.createElement("strong");
+    const em = document.createElement("em");
+    const del = document.createElement("del");
+    console.log(elem.hasChildNodes(), elem);
+
+    if (
+      parent.constructor === strong.constructor ||
+      parent.constructor === em.constructor ||
+      parent.constructor === del.constructor
+    )
+      return false;
+    if (elem.childElementCount > 0) return false;
+    return true;
+  }
+
+  function annotateElement(selector, type, color) {
+    document.querySelectorAll(selector).forEach((elem) => {
+      const shouldAllowAnnotation = checkParent(elem);
+      if (shouldAllowAnnotation)
+        annotate(elem, { type, color, multiline: true, animate: false }).show();
+    });
+  }
+
+  function annotateNestedElement(selector, type, color) {
+    document.querySelectorAll(selector).forEach((elem) => {
+      annotate(elem, {
+        type,
+        color,
+        multiline: true,
+        animate: false,
+        brackets: ["left", "right", "top", "bottom"],
+      }).show();
+    });
+  }
+
+  try {
+    annotateElement("em", "underline", "#2196f3");
+    annotateElement("strong", "highlight", "yellow");
+    annotateElement("del", "strike-through", "#ff0000");
+    annotateNestedElement("em > del", "crossed-off", "#ff0000");
+    annotateNestedElement("em > strong", "box", "lawngreen");
+    annotateNestedElement("em > em", "circle", "#ff000080");
+    annotateNestedElement("blockquote", "bracket", "#da3bf1");
+  } catch (exception) {
+    console.log(exception.message);
+  }
+</script>
+
+<style>
+  .section-content em,
+  .section-content strong,
+  .section-content del {
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  blockquote {
+    background-color: #fff;
+    padding: 0.3rem;
+    margin: 2rem 0;
+  }
+</style>
+
+{{ end }}
+<!--.-->
+{{ end }}

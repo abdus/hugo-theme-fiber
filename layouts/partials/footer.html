@@ -1,0 +1,99 @@
+<footer style="padding: 6rem 1rem 2rem 1rem; text-align: center; color: gray;">
+  {{ partial "tiny-letter.html" }}
+  <!--.-->
+  {{ if .GitInfo }}
+
+  <small style="display: block;">
+    <code>{{ .File.LogicalName }}</code> was last updated on
+    <code>{{ .GitInfo.AuthorDate.Format "2 July, 2006" }}</code>. Generated from
+    <a
+      target="_blank"
+      href="https://github.com/abdus/abdus/tree/{{ .GitInfo.Hash }}"
+      style="text-decoration: none;"
+      ><code>{{ .GitInfo.AbbreviatedHash }}</code></a
+    >
+    because of <code>{{ .GitInfo.Subject }}</code>
+  </small>
+  {{ end }}
+
+  <small>
+    built with <a href="https://gohugo.io">hugo</a>,
+    <a href="https://github.com/neovim/neovim">neovim</a> and
+    <span style="color: red;">❤️ </span>
+  </small>
+</footer>
+
+<!--click-to-copy for code-blocks-->
+<script>
+  (() => {
+    if (document.queryCommandSupported("copy")) {
+      const codeBlocks = [...document.querySelectorAll(".highlight")];
+      codeBlocks.forEach((block) => {
+        block.querySelector("pre.chroma").style.paddingTop = "3rem";
+
+        block.style.position = "relative";
+        const handler = document.createElement("button");
+        handler.textContent = "COPY";
+
+        handler.style.position = "absolute";
+        handler.style.top = "10px";
+        handler.style.right = "10px";
+        handler.style.padding = "0.25rem 0.5rem";
+        handler.style.background = "#ffffff";
+        handler.style.borderRadius = "4px";
+        handler.style.border = "1px solid #C9D5DE";
+        handler.style.color = "#2d3748";
+
+        handler.addEventListener("click", () => {
+          const textarea = document.createElement("textarea");
+          textarea.value = block.querySelector(".chroma > code").textContent;
+          document.body.prepend(textarea);
+          textarea.style.position = "absolute";
+          textarea.style.opacity = 0;
+          textarea.select();
+          document.execCommand("copy");
+          textarea.remove();
+
+          handler.textContent = "COPIED!";
+
+          setTimeout(() => (handler.textContent = "COPY"), 2000);
+        });
+
+        const langCard = document.createElement("span");
+        const lang = block
+          .querySelector(".chroma > code")
+          .classList.toString()
+          .split("language-")[1];
+        langCard.textContent = lang;
+
+        langCard.style.top = "0";
+        langCard.style.left = "1rem";
+        langCard.style.color = "#ffffff";
+        langCard.style.fontSize = "0.7em";
+        langCard.style.position = "absolute";
+        langCard.style.background = "#3f51b5";
+        langCard.style.padding = "0.25rem 0.5rem";
+        langCard.style.textTransform = "uppercase";
+        langCard.style.borderRadius = "0 0 4px 4px";
+
+        block.prepend(langCard);
+        block.prepend(handler);
+      });
+    }
+  })();
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!--<script-->
+<!--async-->
+<!--src="https://www.googletagmanager.com/gtag/js?id=UA-172322616-1"-->
+<!--></script>-->
+<!--<script>-->
+<!--window.dataLayer = window.dataLayer || [];-->
+<!--function gtag() {-->
+<!--dataLayer.push(arguments);-->
+<!--}-->
+<!--gtag("js", new Date());-->
+
+<!--gtag("config", "UA-172322616-1");-->
+<!--</script>-->

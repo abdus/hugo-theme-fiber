@@ -1,0 +1,19 @@
+<div class="page-list">
+  {{ range (where .Site.RegularPages "Section" "posts") }}
+  <div class="list-item">
+    <h3 style="margin: 3rem 0 0.5rem 0;">
+      <a style="text-decoration: none;" href="{{ .Permalink | absURL }}"
+        >{{ .Title }}</a
+      >
+    </h3>
+    {{ if .Date }}
+    <small style="color: gray; font-weight: bold;"
+      >{{ .Date.Format "2 Jan, 2006" | upper }}</small
+    >
+    {{ end }}
+    <p style="margin-top: 0.5rem; color: gray;">
+      {{ .Summary | truncate 230 }}
+    </p>
+  </div>
+  {{ end }}
+</div>

@@ -1,0 +1,71 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href={{"/css/base.css" | absURL }} media="all"> <link
+rel="stylesheet" href={{"/css/syntax.css" | absURL }} media="all">
+<link
+  href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap"
+  rel="stylesheet"
+/>
+<script
+  async
+  src="https://kit.fontawesome.com/66c0687ece.js"
+  crossorigin="anonymous"
+></script>
+
+{{ if .Params.meta.description }}
+<!-- -->
+{{ .Scratch.Set "desc" .Params.meta.description }}
+<!-- -->
+{{ else }}
+<!-- -->
+{{ .Scratch.Set "desc" .Summary }}
+<!-- -->
+{{ end }}
+<!-- -->
+
+{{ if .Params.meta.image }}
+<!-- -->
+{{ .Scratch.Set "image" (.Params.meta.image | absURL) }}
+<!-- -->
+{{ else }}
+<!-- -->
+{{ .Scratch.Set "image" ("/images/default-meta-img.png" | absURL) }}
+<!-- -->
+{{ end }}
+
+<!-- Meta Tags -->
+<meta name="description" content='{{ .Scratch.Get "desc" }}' />
+<!-- -->
+
+<meta name="title" content="{{ .Page.Title }} | {{ .Site.Title }}" />
+<meta
+  name="keywords"
+  content="tech, programming, javascript, react, rust, nodejs, node, mongodb, postgresql"
+/>
+<meta name="robots" content="index, follow" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="English" />
+<meta name="revisit-after" content="2 days" />
+<meta name="author" content="Abdus <mail@abdus.xyz>" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ .Permalink | absURL }}" />
+<meta property="og:title" content="{{ .Page.Title }} | {{ .Site.Title }}" />
+<meta property="og:description" content='{{ .Scratch.Get "desc" }}' />
+<meta property="og:image" content='{{ .Scratch.Get "image" }}' />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="{{ .Permalink | absURL }}" />
+<meta
+  property="twitter:title"
+  content="{{ .Page.Title }} | {{ .Site.Title }}"
+/>
+<meta property="twitter:description" content='{{ .Scratch.Get "desc" }}' />
+<meta property="twitter:image" content='{{ .Scratch.Get "image" }}' />
+
+<title>{{ .Page.Title }} | {{ .Site.Title }}</title>
+<meta
+  name="google-site-verification"
+  content="SaBE4itR48HOEifszgie57M1Y1O9Ayk_rV5cBwah9LY"
+/>

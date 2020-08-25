@@ -1,0 +1,14 @@
+{{ define "main" }}
+<main>
+  <div>
+    <h1>{{ .Title }}</h1>
+
+    {{ range .Data.Terms }}
+    <a class="taxonomy-term" href="{{ .Page.Permalink }}"
+      >{{ .Page.Title | urlize }} <small>{{ .Count }}</small>
+    </a>
+    {{ end }}
+  </div>
+</main>
+
+{{ end }}

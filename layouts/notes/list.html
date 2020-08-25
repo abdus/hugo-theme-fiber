@@ -1,0 +1,87 @@
+{{ define "main" }}
+<input
+  style="
+    padding: 0.5rem 0.7rem;
+    display: block;
+    margin: 0 auto 1rem auto;
+    min-width: 20rem;
+    border: 1px solid lightgray;
+    font: inherit;
+    border-radius: 0.3rem;
+  "
+  id="search-box"
+  type="search"
+  placeholder="Start typing..."
+/>
+<div style="max-width: 100%; overflow: auto;">
+  <table style="margin: auto; min-width: 95%;">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th style="text-align: left;">Title</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    {{ range sort .Pages.ByTitle }}
+    <tr>
+      <td style="text-align: center;">
+        {{ .Date.Format "02/01/06" }}
+      </td>
+      <td><a href="{{ .Permalink | absURL }}">{{ .Title }}</a> &nbsp;</td>
+
+      {{ if .Param "categories" }}
+      <td style="text-align: center;">
+        {{ range .Param "categories" }}
+        <a href="/categories/{{ . | urlize }}/">{{ . }}</a>
+        {{ end }}
+      </td>
+      {{ else }}
+      <td></td>
+      {{ end }}
+    </tr>
+    {{ end }}
+  </table>
+</div>
+
+<script>
+  "use strict";
+  // search functionality
+  (() => {
+    // check if url have any query parameters
+    const query = new URLSearchParams(window.location.search).get("q");
+
+    const table_raws = [...document.querySelectorAll("tr")];
+    table_raws.shift();
+
+    function performSearch(search_text) {
+      for (let t of table_raws) {
+        const text = t
+          .querySelector("td:nth-child(2)")
+          .textContent.toLowerCase();
+        if (text.includes(search_text)) {
+          t.style.display = "table-row";
+        } else t.style.display = "none";
+      }
+    }
+
+    document.addEventListener("keypress", () => {
+      document.querySelector("#search-box").focus();
+    });
+
+    // search
+    if (query) {
+      let removeDash = query.replace("-", " ");
+      document.querySelector("#search-box").value = removeDash;
+      performSearch(removeDash);
+    }
+
+    document.querySelector("#search-box").addEventListener("input", (e) => {
+      const search_text = e.target.value
+        ? e.target.value.trim().toLowerCase()
+        : e.target.value;
+
+      performSearch(search_text);
+    });
+  })();
+</script>
+{{ end }}

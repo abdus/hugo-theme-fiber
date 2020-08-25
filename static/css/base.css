@@ -1,0 +1,164 @@
+@font-face {
+  font-family: Monaco;
+  src: url('/fonts/monaco.ttf');
+}
+
+* {
+  font-family: inherit;
+  color: inherit;
+  background: inherit;
+}
+
+:root {
+  --max-content-width: 40rem;
+}
+
+ body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  font-family: Oxygen, 'Helvetica Neue', sans-serif;
+ }
+
+a:hover {
+  color: gray;
+}
+
+img {
+  max-width: 100%;
+  width: auto;
+}
+
+.chroma {
+  overflow: auto;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid #3f51b53b;
+}
+
+code {
+  font-family: Monaco, monospace;
+  padding: 1px 4px;
+  color: #a70000;
+  background: #dedede8f;
+  font-size: 0.9em;
+  border-radius: 0.2rem;
+}
+
+pre code {
+  padding: unset;
+  background: unset;
+  color: unset;
+  border-radius: unset;
+}
+
+blockquote {
+  color: #6832ce;
+  background: #6832ce14;
+  margin: 0;
+  padding: 1rem 1rem;
+  position: relative;
+  border-radius: 0.4rem;
+}
+
+blockquote * {
+  background: unset;
+  color: inherit;
+  margin: 0;
+}
+
+li:hover {
+  background: #EEEEEE;
+}
+
+table {
+  border-spacing: 0;
+  border: 1px solid lightgray;
+  border-right: 0;
+}
+
+thead {
+  background: #c3c3c3;
+}
+
+td, th {
+  padding: 7px;
+  border-right: 1px solid lightgray;
+}
+
+tr:nth-child(even) {
+  background: #eeeeee;
+}
+
+#content {
+   max-width: var(--max-content-width);
+   margin: auto;
+   padding: 0 1rem;
+ }
+
+.prev-next {
+  display: block;
+}
+
+.prev-next.older {
+  text-align: right;
+}
+
+
+.taxonomy-term {
+    padding: 0.3rem 0.7rem;
+    margin: 0.2rem auto;
+    border: 1px solid lightgray;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 0.4rem;
+  }
+
+  .taxonomy-term small {
+    border-radius: 50%;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: red;
+  }
+
+  div.logo {
+    padding: 0.7rem 1rem;
+    font-family: monaco;
+    display: inline-block;
+    border-radius: 0.4rem;
+    text-align: center;
+    margin: 1rem auto;
+    text-shadow: 6px 6px 3px #bdbdbd;
+    font-size: 1.3em;
+  }
+
+  div.logo span {
+    color: #00ff00;
+  }
+
+  div.logo span:nth-child(2) {
+    color: #796b01;
+  }
+
+  .top-nav {
+    display: block;
+    max-width: var(--max-content-width);
+    text-align: left;
+    padding: 0.3rem;
+    font-family: Monaco, monospace;
+    margin: auto;
+  }
+
+  .top-nav a {
+    font-size: 0.8em;
+    margin: 0 10px;
+    color: gray;
+    text-decoration: none;
+  }
+
+  .top-nav a.active {
+    color: #a70000;
+    font-weight: bold;
+  }

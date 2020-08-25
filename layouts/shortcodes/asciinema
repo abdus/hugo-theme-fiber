@@ -1,0 +1,5 @@
+<script
+  id='asciicast-{{ .Get "id" }}'
+  src="https://asciinema.org/a/{{ .Get "id" }}.js"
+  async
+></script>

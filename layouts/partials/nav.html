@@ -1,0 +1,15 @@
+{{ $current_url := .Permalink | relURL }}
+<small class="top-nav">
+  <a href="/">HOME</a>
+  {{ range .Site.Menus.main }}
+  <a href="{{ .URL }}">{{ .Name | upper }}</a>
+  {{ end }}
+</small>
+
+<a
+  href='{{ "/" | absURL }} '
+  style="text-align: center; display: block; margin-top: 3rem;"
+>
+  <div class="logo"><span>#"</span><span>{{ .Site.Params.title }}</span><span>"</span></div>
+</a>
+

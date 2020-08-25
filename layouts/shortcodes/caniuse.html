@@ -1,0 +1,13 @@
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js"></script>
+
+<div
+  class="ciu_embed"
+  data-feature={{ .Get "feature" }}
+  data-periods={{ .Get "periods" }}
+  data-accessible-colours={{ or (.Get "accessible_color" ) false }}
+>
+  <p>
+  Data on support for the {{ .Get "feature" }} feature across the major
+    browsers
+  </p>
+</div>
