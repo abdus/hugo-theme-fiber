@@ -20,19 +20,24 @@
 A Hugo theme for the minimalists. Fiber uses minimum JavaScript and CSS to
 so that you site could load faster!
 
-## Table of Contents
+## [Table of Contents](#table-of-contents)
 
 - [Installation](#installation)
     + [Using Submodule](#using-submodule)
     + [Directly downloading theme](#directly-downloading-theme)
+- [Features](#features)
+  * [SEO Ready](#seo-ready)
+  * [Shortcodes](#shortcodes)
+    + [ASCIINema](#asciinema)
+    + [Can I Use](#can-i-use)
+  * [Click to Copy Code](#click-to-copy-code)
 - [Theme Set-up](#theme-set-up)
   * [Listing content in Homepage](#listing-content-in-homepage)
     + [List of blogs, notes etc](#list-of-blogs--notes-etc)
     + [Listing custom content](#listing-custom-content)
   * [Code Highlighting](#code-highlighting)
-- [Menu Items](#menu-items)
-- [Site Title](#site-title)
-
+  * [Menu Items](#menu-items)
+  * [Site Title](#site-title)
 
 ## Installation
 
@@ -58,6 +63,32 @@ If there is an update in theme repository, you can pull them using `git submodul
 1. Download [this](https://github.com/abdus/hugo-theme-fiber) and extract its
    content to `SITE_ROOT/themes/hugo-theme-fiber/`.
 2. Start hugo locally by executing `hugo serve` from terminal.
+
+## Features
+
+### SEO Ready
+
+This theme is loaded with basic SEO as well as with minimal JSON-LD data
+from Schema.org
+
+### Shortcodes
+
+Apart from out-of-the-box shortcodes, it does have a few other useful shortcodes
+which can be proven helpful at times.
+
+#### ASCIINema
+
+Embed an AsciiNema Cast. Shortcode to use: `{{< asciinema id="id of a public cast" >}}`
+
+#### Can I Use
+
+This shortcode shows latest data from [caniuse.com](https://caniuse.com) website.
+Useful for web developers.
+
+### Click to Copy Code
+
+Visitors of the website can copy content of any codeblock with just one click.
+This will not break code indentations!
 
 ## Theme Set-up
 
@@ -110,7 +141,7 @@ codeFences = true
 noClasses = false
 ```
 
-## Menu Items
+### Menu Items
 
 By default, there's only one menu item in top menu. To add more items in there,
 one needs to define menu items inside `config.toml`. Following is an example
@@ -145,7 +176,7 @@ from my [site's](https://abdus.xyz) `config.toml`:
     weight = 10
 ```
 
-## Site Title
+### Site Title
 
 Site title is controlled by following params in `config.toml`:
 
@@ -156,4 +187,3 @@ Site title is controlled by following params in `config.toml`:
 ```
 
 
-WIP
