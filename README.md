@@ -37,6 +37,7 @@ eyes!!
     - [Can I Use](#can-i-use)
   - [Click to Copy Code](#click-to-copy-code)
   - [Beautiful Notes](#beautiful-notes)
+- [Screenshots](#screenshots)
 - [Theme Set-up](#theme-set-up)
   - [Listing content in Homepage](#listing-content-in-homepage)
     - [List of blogs, notes etc](#list-of-blogs--notes-etc)
@@ -113,6 +114,13 @@ Rough Annotations are controlled using tags like `strong`, `em` and `strikethrou
 To generate a new `notes` entry, first you must create directory `content/notes`.
 Then use `hugo new notes/file-name.md` to generate a Note. This file would
 contain information about how to annotate things with above mentioned tags.
+
+## Screenshots
+
+<p align="center">
+<img src="https://i.imgur.com/k0Pmjoh.png" />
+<img src="https://i.imgur.com/lnSBRYD.png" />
+</p>
 
 ## Theme Set-up
 
