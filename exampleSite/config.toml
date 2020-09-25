@@ -1,6 +1,6 @@
 baseurl = "https://example.com/"
 languageCode = "en-us"
-theme = "0x-32"
+theme = "hugo-theme-fiber"
 paginate = 5
 
 [params]
